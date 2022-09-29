@@ -1,0 +1,27 @@
+/*Lab QUE1: Write a program to accept a number from user and then prints the sum of the even and odd integers.*/
+import java.util.Scanner;
+
+public class Sum_Even_Odd {
+    public static void main(String[] args) {
+        int number, even = 0, odd = 0;
+        char response;
+        Scanner sc = new Scanner(System.in);
+
+        do {
+            System.out.println("Enter the number");
+            number = sc.nextInt();
+            if (number % 2 == 0) {
+                even = even + number;
+            } else
+                odd = odd + number;
+
+            System.out.println("Do you want to Continue the process y/n");
+            response = sc.next().charAt(0);
+        } while (response == 'Y' || response == 'y');
+
+        System.out.println("Sumb off odd number is = " + odd);
+        System.out.println("sumb of even number is = " + even);
+        sc.close();
+    }
+
+}
