@@ -1,0 +1,56 @@
+/*WAP to accept a no from user and check it is prime or not. Pass this number in different function and 
+ check it is even or odd. IF number is even than check it is divisible by 10 or not in different function 
+and is no is odd than check it is divisible by 3 or not in different function*/
+import java.util.*;
+public class Question_3 {
+static Scanner sc =new Scanner(System.in);
+ static int a=sc.nextInt();
+ static boolean f=false;
+	
+static void prime(int a) {
+	for(int i=2;i<=a/2;i++) {
+		if(a%i==0) {
+			f=true;
+			break;
+		}
+	}
+	if(!f) {
+		System.out.println(a+" "+" is the prime no ");
+	}
+	else
+	{
+			System.out.println(a+" "+" is not the prime no ");
+			System.exit(a);
+	
+	}
+	}
+static void EvenOdd(int a) {
+	System.out.println("check the given no is Odd or Even :");
+	if(a%2==0) {
+		System.out.println(a+" "+"is the even no ");
+		if(a%10==0) {
+			System.out.println("the no is divisible by 10");
+		}
+		else
+		{
+			System.out.println("the no is not divisible by 10 ");
+		}
+	}
+	else
+	{
+		System.out.println(a+" "+"  is the odd no ");
+		if(a%3==0) {
+			System.out.println("the no is divisible b 3");
+		}
+		else
+		{
+			System.out.println("the no is not divisible by 3");
+		}
+	}
+}
+public static void main(String[] args) {
+	Question_3 qe = new Question();
+	qe.prime(a);
+	qe.EvenOdd(a);
+}
+}
