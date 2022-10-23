@@ -1,0 +1,98 @@
+import java.util.*;
+class Employee{
+	Scanner sc=new Scanner(System.in);
+         int p=sc.nextInt(); //size of an array 
+         int d,temp;
+         int add[]=new int [p];
+         String name[]=new String[p];
+         String address[]=new String[p];
+         int phn_no[]=new int[p];
+	 private int emp_id[]=new int[p];
+         private int salary[]=new int[p];
+	 int expenses;
+	 int remaining[]=new int[p];
+	 int x[]=new int[p];
+	 int y[]=new int[p];
+  
+    public void getEmp_id()   
+    {
+	 System.out.println(emp_id); 
+    }
+
+    public void setEmp_id() //private to public
+    { 
+	 x=emp_id;	
+    }
+
+    public void getSalary()
+    {
+	System.out.println(salary);
+    }
+
+    public void setSalary() //private to public
+    {
+	y=salary;
+    }	
+}
+class Calculator extends Employee{
+	void display() {
+		for(int i=0;i<=p-1;i++) {
+		add[i]=0;	
+		System.out.println("Enter name :");
+		name[i]=sc.next();
+		System.out.println("Enter address:");
+		address[i]=sc.next();
+		System.out.println("Enter phone number:");
+		phn_no[i]=sc.nextInt();
+		System.out.println("Enter employee id :");
+		x[i]=sc.nextInt();
+		System.out.println("enter salary :");
+		y[i]=sc.nextInt();
+		
+		do {
+		    System.out.println("enter Expenses :");
+		    expenses=sc.nextInt();
+		    System.out.println("do you want to more spend money : press 1");
+		    add[i]+=expenses;
+		    d=sc.nextInt();
+	            expenses++;
+		}while(d==1); //using loop for user want to spend money 
+		
+		remaining[i]=y[i]-add[i]; // This is remaining amount of salary which expenses minus from salary   
+		System.out.println("The Remaining Amount is:"+remaining[i]);
+		}
+		System.out.println("The maximum Salary is :");
+	    for(int i=0;i<p;i++) {
+	    	for(int j=i+1;j<p;j++) {
+	    		if(y[j]<y[i])
+	    		{
+                 //using sorting function to find greater salary	
+	    		 temp=y[i];
+	    		 y[i]=y[j];
+	    		 y[j]=temp;
+	    		}
+	    	}	
+	    }
+	    System.out.println(y[p-1]);
+	    System.out.println("The maximum Expenses is :");
+	    for(int i=0;i<p;i++) {
+	    	for(int j=i+1;j<p;j++) {
+	    		if(add[j]<add[i])
+	    		{
+	    		 //using sorting function to find greater Expenses
+	    		 temp=add[i];
+	    		 add[i]=add[j];
+	    		 add[j]=temp;
+	    		}
+	    	}	
+	    }
+	    System.out.println(add[p-1]); 
+}
+}
+public class UserEmp extends Calculator{
+	public static void main(String[] args) {
+		System.out.println("Enter the Size of array :");
+		UserEmp u=new UserEmp();
+		u.display();
+	}
+}
