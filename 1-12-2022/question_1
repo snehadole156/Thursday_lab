@@ -1,0 +1,51 @@
+import java.util.*;
+class Machine{	Scanner sc=new Scanner(System.in);	
+int balance=50000,withdraw,deposite;	
+int b,z; 
+Machine()
+ { do
+ { 
+balance=balance+0;
+ System.out.println("if you want to check balance press 1 ");
+ System.out.println("if you want to withdraw balance press 2 "); 
+System.out.println("if you want to deposite balance press 3 "); 
+z=sc.nextInt(); 
+if(z==1||z==2||z==3) //condition for check user enter the correct number
+ { 
+if(z==1) // condition for checking balance
+ {	
+System.out.println(balance);
+ }
+ if(z==2) //condition for withdraw amount 
+{ 	
+if(balance>100) // condtion to check balance is greater than 100 
+	{			System.out.println("how many amount you want to withdraw :");	
+withdraw=sc.nextInt(); balance=balance-withdraw;
+ System.out.println("the remaining ammount is :"+balance);
+	}	
+else 
+{	 
+System.out.println("Your balance is not sufficient,So kindly add amount and continue your process"); 
+	} 
+} 
+if(z==3) //condition for deposite amount
+ {	
+System.out.println("Enter deposite amount :");
+ deposite=sc.nextInt();	
+balance=balance+deposite; 
+} 
+} else 
+{	
+ System.out.println("enter correct number");
+ } 
+System.out.println("if you want to continue the process press 0");
+ b=sc.nextInt();
+ }
+ while(b==0); // for repeat above Process 
+}
+}
+public class TestDemo {public static void main(String[] args) 
+{	
+Machine m=new Machine();
+}
+}
