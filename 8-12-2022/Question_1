@@ -1,0 +1,31 @@
+use snehadb;
+create table product
+(eid int primary key,fname varchar(30),lname varchar(30),
+salary int,DOB date,DOJoin date,Dep varchar(30),
+des varchar(30),city varchar(30),state varchar(30));
+insert into product values
+(1,"sneha","mahale",50000,"2000-03-06","2022-8-21","Computer",
+"SQL Developer","Pune","maharastra");
+select * from product;
+insert into product values
+(2,"sneha","Patil",55000,"2003-03-02","2020-9-21","Mech",
+"Product Manager","Pune","maharastra"),
+(3,"Yash","Gavande",40000,"1998-05-02","2019-4-22","Marketing",
+"Sales Manager","Mumbai","maharastra"),
+(4,"Kalyani","SWami",30000,"2003-03-02","2012-9-12","Commeres",
+"Accounting","Mumbai","maharastra"),
+(5,"Jyoti","patil",80000,"2005-08-02","2018-3-21","Computer",
+"Developer","Dholkpur","maharastra"),
+(6,"Seeta","Mane",10000,"2006-07-02","2022-9-21","Civil",
+"Architect","Belgav","UK");
+alter table  product rename to Employee;
+create table Incentive
+(Eref_Id int,IncDate int,IncAmount int,
+foreign key(Eref_Id) references Employee(eid));
+alter table Incentive modify  IncDate date;
+insert into Incentive values(1,"2022-10-21",30000);
+insert into Incentive values(4,"2020-11-02",20000),
+(5,"2019-12-02",20000),
+(6,"2020-11-02",20000),(3,"2021-11-02",80000);
+select * from Incentive;
+select * from Employee;
